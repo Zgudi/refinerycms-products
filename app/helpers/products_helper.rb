@@ -1,3 +1,5 @@
+require 'acts-as-taggable-on'
+
 module ProductsHelper
   include ActsAsTaggableOn::TagsHelper
 
