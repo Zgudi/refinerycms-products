@@ -1,6 +1,6 @@
 # Refinery CMS Products and Categories
 
-Product catalogue (with categories) for your [Refinery CMS](http://refinerycms.com) website. Depends on the following engines:
+Product catalogue (with categories) for your [Refinery CMS](http://refinerycms.com) website. Depends on the following gems, which you'll want to install first:
 
 + Banners - https://github.com/julesce/refinerycms-banners (1.0)
 
@@ -22,6 +22,7 @@ Now, run:
 
 Next, run:
 
+    rails generate acts_as_taggable_on:migration
     rails generate refinerycms_categories
     rails generate refinerycms_products
 
