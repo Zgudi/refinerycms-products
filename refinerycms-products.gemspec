@@ -10,4 +10,8 @@ Gem::Specification.new do |s|
   s.authors           = ['James Thompson', 'Byron Peters']
   s.email             = 'james.b.thompson@gmail.com'
   s.homepage          = 'https://github.com/julesce/refinerycms-products'
+
+  # Runtime dependencies
+  s.add_dependency    'acts_as_taggable_on', '~> 2.1.0'
+
 end
