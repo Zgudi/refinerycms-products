@@ -12,6 +12,6 @@ Gem::Specification.new do |s|
   s.homepage          = 'https://github.com/julesce/refinerycms-products'
 
   # Runtime dependencies
-  s.add_dependency    'acts_as_taggable_on', '~> 2.1.0'
+  s.add_dependency    'acts-as-taggable-on', '~> 2.2.2'
 
 end
