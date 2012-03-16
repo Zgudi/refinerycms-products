@@ -16,7 +16,7 @@ module Refinery
       end
       
       initializer 'Customer.helper' do |app|
-        ActionView::Base.send :include, Refinery::Customers::AddressHelper
+        ActionView::Base.send :include, AddressHelper
       end
             
       config.after_initialize do

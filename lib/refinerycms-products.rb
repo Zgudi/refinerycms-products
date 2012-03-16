@@ -19,6 +19,10 @@ module Refinery
         app.middleware.insert_after ::ActionDispatch::Static, ::ActionDispatch::Static, "#{root}/public"
       end
 
+      initializer 'Products.helper' do |app|
+        ActionView::Base.send :include, ProductsHelper
+      end
+
       config.after_initialize do
         Refinery::Plugin.register do |plugin|
           plugin.name = "products"
