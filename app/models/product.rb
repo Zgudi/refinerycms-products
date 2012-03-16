@@ -1,8 +1,10 @@
 class Product < ActiveRecord::Base
 
   acts_as_indexed :fields => [:name, :description, :summary]
-  
-  acts_as_taggable_on :tags
+
+  if defined?(ActsAsTaggableOn)
+    acts_as_taggable_on :tags
+  end
 
   validates :name, :presence => true, :uniqueness => true
   validate :validate_category
