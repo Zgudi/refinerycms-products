@@ -1,5 +1,3 @@
-require 'acts_as_taggable_on'
-
 class Product < ActiveRecord::Base
 
   acts_as_indexed :fields => [:name, :description, :summary]
