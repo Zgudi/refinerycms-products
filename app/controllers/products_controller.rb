@@ -42,14 +42,15 @@ protected
       @category = Category.find(params[:category_id])
       @products = Product.by_category(@category.id).order('position ASC')
       @page_title = @category.name      
-    else
-      if params[:upper].present? and params[:lower].present?
+    elsif params[:upper].present? and params[:lower].present?
         @products = Product.greater_than(params[:lower]).less_than(params[:upper])
         @page_title = "By Price"
-      elsif params[:tag].present? 
-        @products = Product.tagged_with(params[:tag]).order('position ASC')
-        @page_title = params[:tag].capitalize
-      end  
+    elsif params[:tag].present?
+      @products = Product.tagged_with(params[:tag]).order('position ASC')
+      @page_title = params[:tag].capitalize
+    else
+      @products = Product.all
+      @page_title = "All Products"
     end
   end
 
