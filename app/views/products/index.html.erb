@@ -6,7 +6,7 @@
   	
 
     <% if @products.blank? %>
-		<p><i>There are no products loaded for this category yet. Or we're temporarily out of stock - check back soon.</i></p>
+		<p><i>Sorry, we can't find any products. Either we're out of stock, or there are no products belonging to the category that you selected.</i></p>
 	<% else %>
 			
 			<%= content_tag('p', raw(@category.description)) if @category.present? %>
