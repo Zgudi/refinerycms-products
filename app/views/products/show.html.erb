@@ -12,7 +12,7 @@
 		<div class="price">Price: <%= raw rands(@product.price) %></div>
 		<div class="add_to_cart">
 			<%= form_tag(add_to_cart_path(@product)) do |f| %>				
-				<% if @product.variants.any? %>
+				<% if defined?(Variant) && @product.variants.any? %>
 					<%= collection_select(:variant, :id, @product.variants, :id, :name, {}, {:class => "variant"})  -%>				
 				<% end %>
 				<p><%= image_submit_tag("/images/cart.png") %></p>
