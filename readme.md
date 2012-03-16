@@ -1,10 +1,30 @@
-# Products engine for Refinery CMS.
+# Refinery CMS Products and Categories
 
-## How to build this engine as a gem
+Product catalogue (with categories) for your [Refinery CMS](http://refinerycms.com) website. Depends on the following engines:
 
-    cd vendor/engines/products
-    gem build refinerycms-products.gemspec
-    gem install refinerycms-products.gem
-    
-    # Sign up for a http://rubygems.org/ account and publish the gem
-    gem push refinerycms-products.gem
++ Banners - https://github.com/julesce/refinerycms-banners (1.0)
+
+This version of `refinerycms-products` supports Rails 3.0.x.
+
+## Requirements
+
+Refinery CMS version 1.0.x.
+
+## Install
+
+Open up your ``Gemfile`` and add the following:
+
+    gem 'refinerycms-products', '~> 1.0.0'
+
+Now, run:
+
+    bundle install
+
+Next, run:
+
+    rails generate refinerycms_categories
+    rails generate refinerycms_products
+
+Migrate your database:
+
+    rake db:migrate
