@@ -1,11 +1,7 @@
 require 'refinerycms-base'
-require 'refinerycms-categories'
-require 'refinerycms-customers'
-require 'refinerycms-carts'
-require 'refinerycms-line_items'
 
 module Refinery
-  module Products
+  module Carts
 
     class << self
       attr_accessor :root
@@ -21,14 +17,16 @@ module Refinery
 
       config.after_initialize do
         Refinery::Plugin.register do |plugin|
-          plugin.name = "products"
+          plugin.name = "carts"
           plugin.pathname = root
           plugin.activity = {
-            :class => Product,
-            :title => 'name'
+            :class => Cart
           }
+          plugin.hide_from_menu = true
         end
       end
     end
   end
 end
+
+require File.expand_path('../refinerycms-line_items', __FILE__)

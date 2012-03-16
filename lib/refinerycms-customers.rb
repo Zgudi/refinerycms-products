@@ -1,11 +1,7 @@
 require 'refinerycms-base'
-require 'refinerycms-categories'
-require 'refinerycms-customers'
-require 'refinerycms-carts'
-require 'refinerycms-line_items'
 
 module Refinery
-  module Products
+  module Customers
 
     class << self
       attr_accessor :root
@@ -18,13 +14,17 @@ module Refinery
       initializer "static assets" do |app|
         app.middleware.insert_after ::ActionDispatch::Static, ::ActionDispatch::Static, "#{root}/public"
       end
-
+      
+      initializer 'Customer.helper' do |app|
+        ActionView::Base.send :include, Refinery::Customers::AddressHelper
+      end
+            
       config.after_initialize do
         Refinery::Plugin.register do |plugin|
-          plugin.name = "products"
+          plugin.name = "customers"
           plugin.pathname = root
           plugin.activity = {
-            :class => Product,
+            :class => Customer,
             :title => 'name'
           }
         end

@@ -9,7 +9,7 @@
 		<hr>
 		<div class="productname"><%= raw @product.name %></div>	
 		<p><i><%= raw @product.summary %></i></p>
-		<div class="price">Price: <%= raw rands(@product.price) %></div></p>	
+		<div class="price">Price: <%= raw rands(@product.price) %></div>
 		<div class="add_to_cart">
 			<%= form_tag(add_to_cart_path(@product)) do |f| %>				
 				<% if @product.variants.any? %>

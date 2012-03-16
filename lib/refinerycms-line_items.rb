@@ -1,11 +1,7 @@
 require 'refinerycms-base'
-require 'refinerycms-categories'
-require 'refinerycms-customers'
-require 'refinerycms-carts'
-require 'refinerycms-line_items'
 
 module Refinery
-  module Products
+  module LineItems
 
     class << self
       attr_accessor :root
@@ -21,12 +17,12 @@ module Refinery
 
       config.after_initialize do
         Refinery::Plugin.register do |plugin|
-          plugin.name = "products"
+          plugin.name = "line_items"
           plugin.pathname = root
           plugin.activity = {
-            :class => Product,
-            :title => 'name'
+            :class => LineItem
           }
+          plugin.hide_from_menu = true 
         end
       end
     end

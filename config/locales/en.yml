@@ -4,11 +4,56 @@ en:
       image_picker:
         image: image
   plugins:
+    line_items:
+      title: Line Items
+    carts:
+      title: Carts
+    customers:
+      title: Customers
     products:
       title: Products
     categories:
       title: Categories
   admin:
+    line_items:
+      actions:
+        reorder: Reorder Line Items
+        create_new: Add New Line Item
+        reorder_done: Done Reordering Line Items
+      records:
+        no_items_yet: There are no Line Items yet. Click "Add New Line Item" to add your first line item.
+        title: Line Items
+        sorry_no_results: Sorry! There are no results found.
+      line_item:
+        edit: Edit this line item
+        delete: Remove this line item forever
+        view_live_html: View this line item live <br/><em>(opens in a new window)</em>
+    carts:
+      cart:
+        edit: Edit this cart
+        delete: Remove this cart forever
+        view_live_html: View this cart live <br/><em>(opens in a new window)</em>
+      actions:
+        reorder: Reorder Carts
+        create_new: Add New Cart
+        reorder_done: Done Reordering Carts
+      records:
+        no_items_yet: There are no Carts yet. Click "Add New Cart" to add your first cart.
+        title: Carts
+        sorry_no_results: Sorry! There are no results found.
+    customers:
+      actions:
+        create_new: Add New Customer
+        reorder: Reorder Customers
+        reorder_done: Done Reordering Customers
+      records:
+        title: Customers
+        sorry_no_results: Sorry! There are no results found.
+        no_items_yet: There are no Customers yet. Click "Add New Customer" to add your first customer.
+      customer:
+        view_live_html: View this customer live <br/><em>(opens in a new window)</em>
+        edit: Edit this customer
+        delete: Remove this customer forever
     categories:
       actions:
         create_new: Add New Category
@@ -41,3 +86,12 @@ en:
   products:
     show:
       other: Other Products
+  customers:
+    show:
+      other: Other Customers
+  line_items:
+    show:
+      other: Other Line Items
+  carts:
+    show:
+      other: Other Carts

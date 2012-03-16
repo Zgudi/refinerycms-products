@@ -1,6 +1,6 @@
-# Refinery CMS Products and Categories
+# Refinery CMS Products (shopping cart, customers etc.)
 
-Product catalogue (with categories) for your [Refinery CMS](http://refinerycms.com) website. Depends on the following gems, which you'll want to install first:
+Product catalogue for your [Refinery CMS](http://refinerycms.com) website. Depends on the following gems, which you'll want to install first:
 
 + Banners - https://github.com/julesce/refinerycms-banners (1.0)
 
