@@ -1,6 +1,12 @@
 ::Refinery::Application.routes.draw do
-  resources :products
-  resources :categories, :only => [:index, :show]
+  devise_for :customers
+
+  resources :products, :only => [:index, :show]
+
+  resources :categories, :only => [:index, :show] do
+    resources :products, :only => [:index, :show]
+  end
+
   resources :customers, :only => [:index, :show]
   resources :addresses
   resources :profiles
@@ -11,6 +17,16 @@
   match "address_details" => "profiles#address_details", :as => "address_details"
   match "order_history" => "profiles#order_history", :as => "order_history"
   match "order_history_details/:order_number" => "profiles#order_history_details", :as => "order_history_details"
+
+  match "add_to_cart/:product_id" => "carts#add_to_cart", :as => "add_to_cart"
+  match "show_cart" => "carts#show_cart", :as => "show_cart"
+  match "increment_cart/:product_id" => "carts#increment_cart", :as => "increment_cart"
+  match "destroy_line_item/:id" => "line_items#destroy", :as => "destroy_line_item"
+
+  # Famous Categories
+  match 'best_selling' => 'products#best_selling', :as => :best_selling
+  match 'featured' => 'products#featured', :as => :featured
+  match 'new_product' => 'products#new_product', :as => :new_product
 
   scope(:path => 'refinery', :as => 'admin', :module => 'admin') do
     resources :products do
