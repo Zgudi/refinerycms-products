@@ -23,7 +23,6 @@ Now, run:
 Next, run:
 
     rails generate acts_as_taggable_on:migration
-    rails generate refinerycms_categories
     rails generate refinerycms_products
 
 Migrate your database:
