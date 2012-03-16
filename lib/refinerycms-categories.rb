@@ -1,8 +1,7 @@
 require 'refinerycms-base'
-require 'refinerycms-categories'
 
 module Refinery
-  module Products
+  module Categories
 
     class << self
       attr_accessor :root
@@ -18,22 +17,13 @@ module Refinery
 
       config.after_initialize do
         Refinery::Plugin.register do |plugin|
-          plugin.name = "products"
+          plugin.name = "categories"
           plugin.pathname = root
           plugin.activity = {
-            :class => Product,
+            :class => Category,
             :title => 'name'
           }
         end
-
-        #Refinery::Plugin.register do |plugin|
-        #  plugin.name = "categories"
-        #  plugin.pathname = root
-        #  plugin.activity = {
-        #      :class => Category,
-        #      :title => 'name'
-        #  }
-        #end
       end
     end
   end

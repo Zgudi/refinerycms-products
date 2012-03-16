@@ -7,4 +7,7 @@ Gem::Specification.new do |s|
   s.summary           = 'Products engine for Refinery CMS'
   s.require_paths     = %w(lib)
   s.files             = Dir['lib/**/*', 'config/**/*', 'app/**/*']
+  s.authors           = ['James Thompson', 'Byron Peters']
+  s.email             = 'james.b.thompson@gmail.com'
+  s.homepage          = 'https://github.com/julesce/refinerycms-products'
 end

@@ -22,9 +22,9 @@ class CreateProducts < ActiveRecord::Migration
       UserPlugin.destroy_all({:name => "products"})
     end
 
-    if defined?(Page)
-      Page.delete_all({:link_url => "/products"})
-    end
+    #if defined?(Page)
+    #  Page.delete_all({:link_url => "/products"})
+    #end
 
     drop_table :products
   end
