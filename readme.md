@@ -6,7 +6,7 @@ Depends on the following gems, which you'll want to install first:
 
 + Banners - https://github.com/julesce/refinerycms-banners (1.0)
 
-The orders engine below is optional, if you wish to put a checkout process in place. Only EFT payments are allowed:
+The 'orders' engine below is optional, if you wish to put a checkout process in place. Only EFT payments are allowed:
 
 + Orders - https://github.com/julesce/refinerycms-orders (1.0) - Optional.
 
