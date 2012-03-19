@@ -2,7 +2,7 @@
 
   <% cart = @current_cart %>
 
-  <%= form_tag(customer_signed_in? ? delivery_address_path : "#" ) do %>
+  <%= form_tag(customer_signed_in? ? (defined?(OrdersController) ? delivery_address_path : "#") : "#" ) do %>
 
     <% if !cart.line_items.empty? %>
       <table>
@@ -40,7 +40,7 @@
     <% end %>
 
 
-  <% end if defined?(OrdersController) %>
+  <% end %>
 
   <script type="text/javascript">
     $(document).ready(function() {
