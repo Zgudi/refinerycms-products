@@ -10,7 +10,7 @@ class CartsController < ApplicationController
 
   # Here for backwards compatibility
   def show_cart
-    redirect_to cart_path
+    render :action => 'show'
   end
 
   def show
