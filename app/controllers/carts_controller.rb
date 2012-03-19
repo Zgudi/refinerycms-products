@@ -7,8 +7,14 @@ class CartsController < ApplicationController
     # logger.info("****************** the variant = #{params[:variant][:id]}")
       redirect_to_products("Product added to Cart")
   end
-  
+
+  # Here for backwards compatibility
   def show_cart
+    redirect_to cart_path
+  end
+
+  def show
+
   end
   
   def check_quantity_then_update_cart 
