@@ -1,8 +1,10 @@
+<h2 class="category">Addresses</h2>
+
 <% if @delivery_addresses.present? %>
-  <h2 class="category">Addresses</h2>
-  
   <% @delivery_addresses.each do |address| %>
     <%= render :partial => 'show_address', :locals => {:address => address, :url_text => 'Edit this address', :url => edit_address_path(address)} %>
   <% end %>
+<% else %>
+  <p>Sorry, we have no record of any addresses on your account.</p>
 <% end %>
 <div class="clear"></div>

@@ -3,9 +3,10 @@ class CartsController < ApplicationController
   before_filter :initialize_cart
 
   def add_to_cart
-      check_quantity_then_update_cart  
-    # logger.info("****************** the variant = #{params[:variant][:id]}")
-      redirect_to_products("Product added to Cart")
+    check_quantity_then_update_cart
+
+      # redirect_to_products("Product added to Cart")
+    redirect_to show_cart_path
   end
 
   # Here for backwards compatibility

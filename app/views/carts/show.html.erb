@@ -43,11 +43,13 @@
   <% end %>
 
   <script type="text/javascript">
-    $(document).ready(function() {
-      $('a.single').click(function(e) {
-        e.preventDefault();
+    if (typeof jQuery != 'undefined') {
+      $(document).ready(function() {
+        $('a.single').click(function(e) {
+          e.preventDefault();
+        });
       });
-    });
+    }
   </script>
 
 <% end %>
