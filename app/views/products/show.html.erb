@@ -20,7 +20,7 @@
 		</div>
 	</div>
 
-	<% if @tagged_products.present? %>
+	<% if @tagged_products.present? and @tagged_products.first.id != @product.id %>
 		<h2>Customers who bought this also bought...</h2>
 		<% @tagged_products.each do |product| %>
 			<% unless product.id == @product.id %>

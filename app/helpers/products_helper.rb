@@ -27,6 +27,14 @@ module ProductsHelper
     end
   end
 
+  def cart_item_total(cart_item)
+    if variant_exists?(cart_item) and cart_item.variant.price.present?
+      rands(cart_item.variant.price * cart_item.quantity)
+    else
+      rands(cart_item.product.price * cart_item.quantity)
+    end
+  end
+
   def variant_exists?(cart_item)
     cart_item.variant_id.present? and defined?(Variant)
   end

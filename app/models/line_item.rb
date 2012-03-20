@@ -10,7 +10,7 @@ class LineItem < ActiveRecord::Base
   end
   
   def total_price
-    if variant_id.present? and defined?(Variant)
+    if variant_id.present? and defined?(Variant) and variant.price.present?
       variant.price * quantity
     else
       product.price * quantity
