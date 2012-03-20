@@ -4,7 +4,7 @@
 
   <%= form_tag(customer_signed_in? ? (defined?(OrdersController) ? delivery_address_path : "#") : "#" ) do %>
 
-    <% if !cart.line_items.empty? %>
+    <% if cart.line_items.present? %>
       <table>
         <th>Product</th>
         <th class="price">Unit Price</th>
@@ -12,17 +12,16 @@
         <th>Modify Quantity / Delete</th>
         <th class="price">Full Price</th>
 
-
         <% cart.line_items.each do |cart_item| %>
           <tr>
-            <td><%= cart_item.variant_id.blank? ? cart_item.product.name : cart_item.product.name+": "+ cart_item.variant.name %></td>
-            <td><%= cart_item.variant_id.blank? ? rands(cart_item.product.price) : rands(cart_item.variant.price) %></td>
+            <td><%= product_or_variant_name(cart_item) %></td>
+            <td><%= product_or_variant_price(cart_item) %></td>
             <td><%= cart_item.quantity %></td>
-            <td><%= link_to image_tag("/images/plus.png", :size => "20x20"), cart_item.variant_id.blank? ? increment_cart_path(cart_item.product) : increment_cart_path(cart_item.product, :quantity => 1, :variant => {:id => cart_item.variant}) %>
-              <%= link_to image_tag("/images/minus.png", :size => "20x20"), cart_item.variant_id.blank? ? increment_cart_path(cart_item.product, :quantity => -1) : increment_cart_path(cart_item.product, :quantity => -1, :variant => {:id => cart_item.variant}) unless cart_item.quantity == 1 %>
+            <td><%= link_to image_tag("/images/plus.png", :size => "20x20"), variant_exists?(cart_item) ? increment_cart_path(cart_item.product, :quantity => 1, :variant => {:id => cart_item.variant}) : increment_cart_path(cart_item.product) %>
+              <%= link_to image_tag("/images/minus.png", :size => "20x20"), variant_exists?(cart_item) ? increment_cart_path(cart_item.product, :quantity => -1, :variant => {:id => cart_item.variant}) : increment_cart_path(cart_item.product, :quantity => -1) unless cart_item.quantity == 1 %>
               <%= link_to "Delete", destroy_line_item_path(cart_item), :confirm => 'Are you sure?' %>
             </td>
-            <td><%= cart_item.variant_id.blank? ? rands(cart_item.product.price * cart_item.quantity) : rands(cart_item.variant.price * cart_item.quantity) %></td>
+            <td><%= variant_exists?(cart_item) ? rands(cart_item.variant.price * cart_item.quantity) : rands(cart_item.product.price * cart_item.quantity) %></td>
           </tr>
         <% end %>
 
