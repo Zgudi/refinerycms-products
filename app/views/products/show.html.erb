@@ -13,7 +13,7 @@
 		<div class="add_to_cart">
 			<%= form_tag(add_to_cart_path(@product)) do |f| %>				
 				<% if defined?(Variant) && @product.variants.present? %>
-					<%= collection_select(:variant, :id, @product.variants, :id, :name, {}, {:class => "variant"})  -%>				
+					<%= collection_select(:variant, :id, @product.variants.order(:name), :id, :name, {}, {:class => "variant"})  -%>
 				<% end %>
 				<p><%= image_submit_tag("/images/cart.png") %></p>
 			<% end %>

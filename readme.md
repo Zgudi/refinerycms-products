@@ -6,9 +6,9 @@ Depends on the following gems, which you'll want to install first:
 
 + Banners - https://github.com/julesce/refinerycms-banners (1.0)
 
-The `orders` engine below is optional, if you wish to put a checkout process in place. The only payment option at the moment is EFT:
+If you'd like to have variants (like different shirt sizes) for your products, check out the gem below:
 
-+ Orders - https://github.com/julesce/refinerycms-orders (1.0) - Optional.
++ Variants - https://github.com/byropig/refinerycms-variants (1.0)
 
 ## Requirements
 

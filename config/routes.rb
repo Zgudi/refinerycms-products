@@ -7,11 +7,11 @@
     resources :products, :only => [:index, :show]
   end
 
-  resources :customers, :only => [:index, :show]
+  resources :customers, :only => [:show]
   resources :addresses
   resources :profiles
-  resources :carts, :only => [:index, :show]
-  resources :line_items, :only => [:index, :show]
+  resources :carts, :only => [:show]
+  resources :line_items, :only => [:delete]
 
   match "account_details" => "profiles#account_details", :as => "account_details"
   match "address_details" => "profiles#address_details", :as => "address_details"
@@ -33,34 +33,22 @@
         post :update_positions
       end
     end
-  end
-
-  scope(:path => 'refinery', :as => 'admin', :module => 'admin') do
     resources :categories, :except => :show do
       resources :products
       collection do
         post :update_positions
       end
     end
-  end
-
-  scope(:path => 'refinery', :as => 'admin', :module => 'admin') do
     resources :customers do
       collection do
         post :update_positions
       end
     end
-  end
-
-  scope(:path => 'refinery', :as => 'admin', :module => 'admin') do
     resources :carts, :except => :show do
       collection do
         post :update_positions
       end
     end
-  end
-
-  scope(:path => 'refinery', :as => 'admin', :module => 'admin') do
     resources :line_items, :except => :show do
       collection do
         post :update_positions
