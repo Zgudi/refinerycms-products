@@ -14,7 +14,55 @@ en:
       title: Products
     categories:
       title: Categories
+    product_inquiries:
+      title: Product Inquiries
+      description: Provides a product inquiry form and stores product inquiries
+  product_inquiries:
+    new:
+      send: Send message
+      privacy_policy: We value your privacy
   admin:
+    product_inquiries:
+      delete: Remove this product inquiry forever
+      inquiry:
+        read_inquiry: Read the product inquiry
+        said: said
+        mark_as_spam: Mark as spam
+        mark_as_ham: Move to inbox
+      submenu:
+        inbox: Inbox
+        spam: Spam
+        update_notified: Update who gets notified
+        edit_confirmation_email: Edit confirmation email
+      index:
+        no_inquiries: You have not received any product inquiries yet.
+        no_spam: Hooray! You don't have any spam.
+      show:
+        details: Details
+        age: Age
+        actions: Actions
+        back_to_all_inquiries: Back to all Product Inquiries
+        spam: Spam
+        spam_yes: 'yes'
+        inquiry: Product Inquiry
+        to: To
+        from: From
+        click_to_email: Click to email this address
+        phone: Phone
+        date: Date
+        message: Message
+      actions:
+        reorder: Reorder Product Inquiries
+        create_new: Add New Product Inquiry
+        reorder_done: Done Reordering Product Inquiries
+      records:
+        no_items_yet: There are no product inquiries yet. Click "Add New Product Inquiriy" to add your first product inquiry.
+        title: Product Inquiries
+        sorry_no_results: Sorry! There are no results found.
+      line_item:
+        edit: Edit this product inquiry
+        delete: Remove this product inquiry forever
+        view_live_html: View this product inquiry live <br/><em>(opens in a new window)</em>
     line_items:
       actions:
         reorder: Reorder Line Items

@@ -1,0 +1,19 @@
+Hi,
+
+You have received a new product inquiry:
+
+--- inquiry starts ---
+
+Product: <%= @inquiry.product.name if @inquiry.product.present? %>
+From: <%= @inquiry.name %>
+Email: <%= @inquiry.email %>
+Phone: <%= @inquiry.phone %>
+Message:
+<%=simple_format strip_tags(@inquiry.message) %>
+
+--- inquiry ends ---
+
+Kind regards,
+Your friendly robot at <%=raw RefinerySetting[:site_name] %>
+
+P.S. All your comments are stored in the 'Product Inquiries' section of Refinery.

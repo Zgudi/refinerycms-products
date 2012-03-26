@@ -1,9 +1,10 @@
 require 'refinerycms-base'
+require 'refinery'
 require 'refinerycms-categories'
 require 'refinerycms-customers'
 require 'refinerycms-carts'
 require 'refinerycms-line_items'
-require 'refinery'
+require 'refinerycms-product_inquiries'
 
 module Refinery
   module Products

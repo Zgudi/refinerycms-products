@@ -1,6 +1,9 @@
 ::Refinery::Application.routes.draw do
   devise_for :customers
+  get '/product_inquiry', :to => 'product_inquiries#new', :as => 'product_inquiry'
+  get '/product_inquiry_thank_you', :to => 'product_inquiries#thank_you', :as => 'product_inquiry_thank_you'
 
+  resources :product_inquiries, :only => [:new, :create]
   resources :products, :only => [:index, :show]
 
   resources :categories, :only => [:index, :show] do
@@ -52,6 +55,14 @@
     resources :line_items, :except => :show do
       collection do
         post :update_positions
+      end
+    end
+    resources :product_inquiries, :only => [:index, :show, :destroy] do
+      collection do
+        get :spam
+      end
+      member do
+        get :toggle_spam
       end
     end
   end

@@ -11,12 +11,16 @@
 		<p><i><%= raw @product.summary %></i></p>
 		<div class="price">Price: <%= raw rands(@product.price) %></div>
 		<div class="add_to_cart">
-			<%= form_tag(add_to_cart_path(@product)) do |f| %>				
-				<% if defined?(Variant) && @product.variants.present? %>
-					<%= collection_select(:variant, :id, @product.variants.order(:name), :id, :name, {}, {:class => "variant"})  -%>
-				<% end %>
-				<p><%= image_submit_tag("/images/cart.png") %></p>
-			<% end %>
+      <% if RefinerySetting.find_or_set(:use_product_inquiry, false) %>
+        <p><%= link_to("Find Out More", product_inquiry_path(:product_id => @product.id)) %></p>
+      <% else %>
+        <%= form_tag(add_to_cart_path(@product)) do |f| %>
+          <% if defined?(Variant) && @product.variants.present? %>
+            <%= collection_select(:variant, :id, @product.variants.order(:name), :id, :name, {}, {:class => "variant"})  -%>
+          <% end %>
+          <p><%= image_submit_tag("/images/cart.png") %></p>
+        <% end %>
+      <% end %>
 		</div>
 	</div>
 

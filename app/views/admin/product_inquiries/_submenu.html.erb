@@ -1,0 +1,17 @@
+<div id='actions'>
+  <ul>
+    <li>
+      <%= render :partial => "/shared/admin/search", :locals => {:url => request.path} %>
+    </li>
+    <li <%= "class='selected'" if params[:action] == "index" %>>
+      <%= link_to t('.inbox'), admin_product_inquiries_url, :class => "email_icon" %>
+    </li>
+    <li <%= "class='selected'" if params[:action] == "spam" %>>
+      <% if @spam_count > 0  %>
+        <%= link_to "#{t('.spam')} (#{@spam_count})", spam_admin_product_inquiries_url, :class => "spam_icon" %>
+      <% else %>
+        <%= link_to t('.spam'), spam_admin_product_inquiries_url, :class => "spam_empty_icon" %>
+      <% end %>
+    </li>
+  </ul>
+</div>
