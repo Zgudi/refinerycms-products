@@ -22,7 +22,7 @@ Refinery CMS version 1.0.x.
 
 Open up your ``Gemfile`` and add the following:
 
-    gem 'refinerycms-products', '~> 1.0.5'
+    gem 'refinerycms-products', '~> 1.0.6'
 
 Now, run:
 
